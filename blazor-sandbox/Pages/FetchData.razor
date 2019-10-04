@@ -6,6 +6,7 @@
 <h1>Weather forecast</h1>
 
 <p>This component demonstrates fetching data from a service.</p>
+<button class="btn btn-primary" @onclick="RefreshData">Refresh</button>
 
 @if (forecasts == null)
 {
@@ -42,5 +43,10 @@ else
     protected override async Task OnInitializedAsync()
     {
         forecasts = await ForecastService.GetForecastAsync(DateTime.Now);
+    }
+
+    async Task RefreshData()
+    {
+        forecasts = await ForecastService.GetForecastAsync(DateTime.Now.AddDays(-1));
     }
 }
