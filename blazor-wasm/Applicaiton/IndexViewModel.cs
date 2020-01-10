@@ -1,17 +1,18 @@
 ﻿using System;
 using System.Linq;
 using System.Threading.Tasks;
+using Des.Blazor.Authorization.Msal;
 using Microsoft.Identity.Client;
 
 namespace blazor_wasm.Applicaiton
 {
     public class IndexViewModel
     {
-        private readonly IdentityHttpFactory _factory;
+        private readonly IAuthenticationManager _authenticationManager;
 
-        public IndexViewModel(IdentityHttpFactory factory)
+        public IndexViewModel(IAuthenticationManager authenticationManager)
         {
-            _factory = factory;
+            _authenticationManager = authenticationManager;
         }
         public bool IsAuthenticated { get; set; }
 
@@ -23,27 +24,10 @@ namespace blazor_wasm.Applicaiton
         {
             try
             {
-                var clientId = "a662ef2a-28ab-42e7-8168-e1929e52183d";
-                var app = PublicClientApplicationBuilder.Create(clientId)
-                    .WithDefaultRedirectUri()
-                    .WithHttpClientFactory(_factory)
-                    .Build();
+                await _authenticationManager.SignInAsync();
+                var token = await _authenticationManager.GetAccessTokenAsync();
 
-                string[] scopes = new string[] { "user.read" };
-                var accounts = await app.GetAccountsAsync();
-                AuthenticationResult result;
-                try
-                {
-                    result = await app.AcquireTokenSilent(scopes, accounts.FirstOrDefault())
-                        .ExecuteAsync();
-                }
-                catch (MsalUiRequiredException)
-                {
-                    result = await app.AcquireTokenInteractive(scopes)
-                        .ExecuteAsync();
-                }
-
-                this.Name = result.AccessToken;
+                this.Name = token.AccessToken;
             }
             catch (Exception e)
             {
