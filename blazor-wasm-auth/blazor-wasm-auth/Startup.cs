@@ -17,6 +17,7 @@ namespace blazor_wasm_auth
             services.AddTransient<ConfigurationService>();
 
             services.AddTransient<IndexViewModel>();
+            services.AddTransient<UserViewModel>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
