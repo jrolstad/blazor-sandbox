@@ -9,16 +9,20 @@
 <div class="row">
     <p class="alert-success">@ViewModel.Status</p>
 </div>
-<div class="row">
-    <div class="jumbotron col-md-12">
-        <h2>User Access Token</h2>
-        <button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
-        <pre>
-            @ViewModel.AccessToken
-        </pre>
-    </div>
-</div>
 
+<AuthorizeView>
+    <Authorized>
+        <div class="row">
+            <div class="jumbotron col-md-12">
+                <h2>User Access Token</h2>
+                <button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
+                <pre>
+                    @ViewModel.AccessToken
+                </pre>
+            </div>
+        </div>
+    </Authorized>
+</AuthorizeView>
 
 
 

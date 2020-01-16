@@ -31,7 +31,7 @@ namespace blazor_wasm_auth.Application.ViewModels
                 var tokenScope = _configurationService.TokenScope();
                 var token = await _authenticationManager.GetAccessTokenAsync(tokenScope);
 
-                this.AccessToken = token?.AccessToken ?? "nothing";
+                this.AccessToken = token?.AccessToken?.Trim() ?? "nothing";
             }
             catch (Exception e)
             {
