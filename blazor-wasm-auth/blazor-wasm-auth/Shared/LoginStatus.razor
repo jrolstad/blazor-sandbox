@@ -1,5 +1,5 @@
 ﻿@inject IJSRuntime JS
-@inject IAuthenticationManager AuthenticationManager
+@inject LoginStatusViewModel ViewModel
 
 <AuthorizeView>
     <Authorized>
@@ -10,24 +10,16 @@
                 </NavLink>
             </li>
             <li>
-                <button class="btn btn-primary" @onclick="this.AuthenticationManager.SignOutAsync">Logout</button>
+                <button class="btn btn-primary" @onclick="ViewModel.SignOut">Logout</button>
             </li>
         </ul>         
     </Authorized>
     <NotAuthorized>
         <ul class="nav navbar-nav ml-auto">
             <li>
-                <button class="btn btn-primary" @onclick="@(e => this.AuthenticationManager.SignInAsync(this.Scopes))">Login</button>
+                <button class="btn btn-primary" @onclick="ViewModel.SignIn">Login</button>
             </li>
         </ul>
      
     </NotAuthorized>
 </AuthorizeView>
-
-@code {
-
-    [Parameter]
-    public string AdditionalScopes { get; set; }
-
-    private string[] Scopes => this.AdditionalScopes?.Split(',');
-}
