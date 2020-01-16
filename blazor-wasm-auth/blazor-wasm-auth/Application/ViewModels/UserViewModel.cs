@@ -25,7 +25,8 @@ namespace blazor_wasm_auth.Application.ViewModels
             this.Name = state?.User?.Identity?.Name;
             this.AuthenticationType = state?.User?.Identity?.AuthenticationType;
 
-            Claims = state.User?.Claims
+            Claims = state?.User?
+                .Claims
                 .Select(c => new KeyValuePair<string, string>(c.Type, c.Value))
                 .ToList();
         }

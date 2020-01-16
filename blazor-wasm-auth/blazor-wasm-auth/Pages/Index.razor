@@ -1,11 +1,25 @@
 ﻿@page "/"
 @inject IndexViewModel ViewModel
 
-<h1>Hello, world!</h1>
+<h1>Welcome to auth world!</h1>
 
-<button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
-<br/>
-Access Token:
-@ViewModel.AccessToken
+<div class="row">
+    <p class="alert-danger">@ViewModel.Error</p>
+</div>
+<div class="row">
+    <p class="alert-success">@ViewModel.Status</p>
+</div>
+<div class="row">
+    <div class="jumbotron col-md-12">
+        <h2>User Access Token</h2>
+        <button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
+        <pre>
+            @ViewModel.AccessToken
+        </pre>
+    </div>
+</div>
+
+
+
 
 
