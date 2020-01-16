@@ -1,26 +1,12 @@
 ﻿@page "/"
-@inject IAuthenticationManager AuthenticationManager
+@using blazor_wasm_auth.Application.ViewModels
+@inject IndexViewModel ViewModel
 
 <h1>Hello, world!</h1>
 
-<button class="btn btn-primary" @onclick="this.GetAccessToken">Get Access Token</button>
+<button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
 <br/>
 Access Token:
-@AccessToken
+@ViewModel.AccessToken
 
-@code {
 
-    [Parameter]
-    public string AdditionalScopes { get; set; }
-
-    public string AccessToken { get; set; }
-
-    private string[] Scopes => this.AdditionalScopes?.Split(',');
-
-    public async Task GetAccessToken()
-    {
-        var token = await AuthenticationManager.GetAccessTokenAsync(this.Scopes);
-
-        this.AccessToken = token?.AccessToken ?? "nothing";
-    }
-}

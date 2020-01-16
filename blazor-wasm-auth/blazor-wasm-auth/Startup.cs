@@ -1,4 +1,6 @@
 using System;
+using blazor_wasm_auth.Application.Services;
+using blazor_wasm_auth.Application.ViewModels;
 using Microsoft.AspNetCore.Components.Builder;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -11,6 +13,10 @@ namespace blazor_wasm_auth
             services.AddAuthorizationCore();
             services.AddAzureActiveDirectory(
                 new Uri($"/config/appsettings.json?{DateTime.Now.Ticks}", UriKind.Relative));
+
+            services.AddTransient<ConfigurationService>();
+
+            services.AddTransient<IndexViewModel>();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
