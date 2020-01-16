@@ -13,13 +13,49 @@
 <AuthorizeView>
     <Authorized>
         <div class="row">
-            <div class="jumbotron col-md-12">
-                <h2>User Access Token</h2>
-                <button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
-                <pre>
-                    @ViewModel.AccessToken
-                </pre>
-            </div>
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2>User Access Token</h2>
+                    <button class="btn btn-primary" @onclick="@ViewModel.GetAccessToken">Get Access Token</button>
+                    <pre>
+                        @ViewModel.AccessToken
+                    </pre>
+                </div>
+            </div>       
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="jumbotron">
+                    <h2>Call API with Access Token</h2>
+                    <div class="form-row">
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Url" @bind="@ViewModel.ApiUrl">
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" type="button" @onclick="@ViewModel.CallApiWithAccessToken">
+                                    <span class="oi oi-magnifying-glass"></span>
+                                </button>
+                            </div>
+                         </div>
+                    </div>
+                    @if (!string.IsNullOrWhiteSpace(ViewModel.ApiRequestAuthorization))
+                    {
+                        <h4>Authorization Header</h4>
+                        <p class="text-break">@ViewModel.ApiRequestAuthorization</p>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(ViewModel.ApiResultCode))
+                    {
+                        <h4>Result Code</h4>
+                        <p>@ViewModel.ApiResultCode</p>
+                    }
+                    @if (!string.IsNullOrWhiteSpace(ViewModel.ApiResultCode))
+                    {
+                        <h4>Result</h4>
+                        <pre class="text-break">
+                        @ViewModel.ApiResult
+                        </pre>
+                    }
+                </div>
+             </div>
         </div>
     </Authorized>
 </AuthorizeView>
