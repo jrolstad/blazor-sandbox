@@ -1,0 +1,25 @@
+﻿@page "/user/graph"
+@inject IHttpClientFactory HttpClientFactory
+
+<h1>Graph Data</h1>
+<code>
+    @GraphData
+</code>
+
+
+@code {
+    public string GraphData { get; set; }
+
+    protected override async Task OnInitializedAsync()
+    {
+        GraphData = "Loading..";
+
+        var httpClient = HttpClientFactory.CreateClient("GraphApi");
+     
+        var response = await httpClient.GetAsync("https://graph.microsoft.com/beta/me");
+        response.EnsureSuccessStatusCode();
+
+        GraphData = await response.Content.ReadAsStringAsync();
+    }
+
+}
