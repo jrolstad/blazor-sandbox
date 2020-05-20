@@ -1,6 +1,13 @@
 ﻿@page "/"
 
     <div class="jumbotron">
-        <h1>Hello, world!</h1>
-    </div>
+        <h1>Welcome to the Blazor Sandbox.</h1>
+
+        <AuthorizeView>
+            <NotAuthorized>
+                <h3>Please Login to access the full functionality of this application</h3>
+            </NotAuthorized>
+        </AuthorizeView>
+
+</div>
 
