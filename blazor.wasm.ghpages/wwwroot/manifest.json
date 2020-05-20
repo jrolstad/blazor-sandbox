@@ -1,5 +1,5 @@
 {
-  "name": "blazor.wasm.ghpages",
+  "name": "Blazor WASM (PWA)",
   "short_name": "blazor.wasm.ghpages",
   "start_url": "./",
   "display": "standalone",
