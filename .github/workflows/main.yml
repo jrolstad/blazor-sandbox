@@ -1,6 +1,6 @@
 name: deploy-app-to-gh-pages
 env:
-  PUBLISH_DIR: bin/Release/netstandard2.1/publish/wwwroot
+  PUBLISH_DIR: blazor.wasm.ghpages/bin/Release/netstandard2.1/publish/wwwroot
 
 # Controls when the action will run
 on:
