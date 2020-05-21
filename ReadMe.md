@@ -15,6 +15,8 @@ Blazor WebAssembly project that is self-hosted on Github Pages.  Showcases how t
 5. Enable a standalone Blazor to be functional as a Progressive Web App (PWA) and work offline
 6. Build, Publish, and Deploy to Github pages with Github Actions
 
+## blazor.wasm.ghpages.tests
+Unit tests for the Blazor project using [bUnit](https://bunit.egilhansen.com/index.html).
 
 # Actions
 ![deploy-app-to-gh-pages](https://github.com/jrolstad/blazor-sandbox/workflows/deploy-app-to-gh-pages/badge.svg)
