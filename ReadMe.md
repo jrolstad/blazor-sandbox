@@ -5,7 +5,7 @@ A sandbox for learning and using ASP.NET Blazor
 * .NET Core 3.2 or Higher
 
 # Projects
-##blazor.wasm.ghpages
+## blazor.wasm.ghpages
 Blazor WebAssembly project that is self-hosted on Github Pages.  Showcases how to:
 
 1. Create a standalone Blazor app
