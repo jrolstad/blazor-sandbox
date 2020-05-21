@@ -21,6 +21,7 @@ Unit tests for the Blazor project using [bUnit](https://bunit.egilhansen.com/ind
 # Actions
 ## deploy-app-to-gh-pages
 ![deploy-app-to-gh-pages](https://github.com/jrolstad/blazor-sandbox/workflows/deploy-app-to-gh-pages/badge.svg)
+
 Every time code is pushed to master, the projects are built, unit tests ran, and the project pushed to GitHub pages so it is available at [https://jrolstad.github.io/blazor-sandbox/](https://jrolstad.github.io/blazor-sandbox/)
 
 
