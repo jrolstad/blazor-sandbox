@@ -12,7 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor.wasm.ghpages", "blazor.wasm.ghpages\blazor.wasm.ghpages.csproj", "{5278B169-078E-4644-BFB3-785F4F620E9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "blazor.wasm.ghpages.tests", "blazor.wasm.ghpages.tests\blazor.wasm.ghpages.tests.csproj", "{2963368D-1A37-4612-8147-97868FE44416}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "blazor.wasm.ghpages.tests", "blazor.wasm.ghpages.tests\blazor.wasm.ghpages.tests.csproj", "{2963368D-1A37-4612-8147-97868FE44416}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
