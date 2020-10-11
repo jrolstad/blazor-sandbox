@@ -14,12 +14,18 @@
     {
         GraphData = "Loading..";
 
-        var httpClient = HttpClientFactory.CreateClient("GraphApi");
-     
-        var response = await httpClient.GetAsync("https://graph.microsoft.com/beta/me");
-        response.EnsureSuccessStatusCode();
+        try
+        {
+            var httpClient = HttpClientFactory.CreateClient("GraphApi");
 
-        GraphData = await response.Content.ReadAsStringAsync();
+            var response = await httpClient.GetAsync("https://graph.microsoft.com/beta/me");
+            response.EnsureSuccessStatusCode();
+
+            GraphData = await response.Content.ReadAsStringAsync();
+        }
+        catch (Exception ex)
+        {
+            GraphData = $"Failed:<br/>{ex.ToString()}";
+        }
     }
-
 }
